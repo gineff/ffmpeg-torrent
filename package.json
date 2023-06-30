@@ -1,0 +1,43 @@
+{
+  "name": "ffmpeg-torrent",
+  "version": "1.0.0",
+  "description": "download torrent`s video fragment ",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "dev": "nodemon src/app.ts",
+    "build": "rimraf dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "keywords": [
+    "torrent",
+    "ffmpeg",
+    "video",
+    "download"
+  ],
+  "author": "gineff",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "8.2.4",
+    "mime": "3.0.0",
+    "parse-torrent": "9.1.5",
+    "torrent-stream": "1.2.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts-strictest-esm": "18.12.1",
+    "@types/inquirer": "9.0.3",
+    "@types/mime": "3.0.1",
+    "@types/parse-torrent": "5.8.4",
+    "@types/range-parser": "1.2.4",
+    "@types/torrent-stream": "0.0.6",
+    "@typescript-eslint/parser": "5.60.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "8.0.3",
+    "ts-node": "10.9.1",
+    "typescript": "5.1.3"
+  }
+}
