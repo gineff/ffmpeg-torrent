@@ -21,8 +21,13 @@
   ],
   "author": "gineff",
   "license": "ISC",
+  "bin": {
+    "ffmpeg-torrent": "./dist/app.js"
+  },
   "dependencies": {
+    "clivas": "0.2.0",
     "inquirer": "8.2.4",
+    "keypress": "0.2.1",
     "mime": "3.0.0",
     "parse-torrent": "9.1.5",
     "torrent-stream": "1.2.1"

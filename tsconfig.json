@@ -22,7 +22,7 @@
     "types": ["node"],
     "baseUrl": "./src",
     "rootDir": "./src",
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types", "src/typings"],
     "outDir": "dist",
     "skipLibCheck": true
   },
