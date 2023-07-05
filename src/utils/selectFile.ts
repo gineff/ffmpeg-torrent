@@ -7,6 +7,7 @@ type SelectFile = (files: Instance['files']) => Promise<FileIndex>
 
 export const selectFile: SelectFile = async files => {
   if (!files) return Promise.reject(new Error('no files in torrent'))
+  if (files.length === 1) return 0
   return new Promise(resolve => {
     inquirer
       .prompt([
