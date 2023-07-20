@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "download torrent`s video fragment ",
   "scripts": {
-    "start": "ts-node src/app.ts",
+    "start": "ts-node dist/app.js",
     "dev": "nodemon src/app.ts",
     "build": "rimraf dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
