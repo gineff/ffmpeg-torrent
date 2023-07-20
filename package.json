@@ -29,6 +29,7 @@
     "inquirer": "8.2.4",
     "keypress": "0.2.1",
     "mime": "3.0.0",
+    "minimist": "1.2.8",
     "parse-torrent": "9.1.5",
     "torrent-stream": "1.2.1"
   },
@@ -36,6 +37,7 @@
     "@tsconfig/node-lts-strictest-esm": "18.12.1",
     "@types/inquirer": "9.0.3",
     "@types/mime": "3.0.1",
+    "@types/minimist": "1.2.2",
     "@types/parse-torrent": "5.8.4",
     "@types/range-parser": "1.2.4",
     "@types/torrent-stream": "0.0.6",

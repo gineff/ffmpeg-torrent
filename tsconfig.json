@@ -24,11 +24,12 @@
     "rootDir": "./src",
     "typeRoots": ["node_modules/@types", "src/typings"],
     "outDir": "dist",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "tsc-alias": {
     "verbose": false,
     "resolveFullPaths": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/config.json"]
 }

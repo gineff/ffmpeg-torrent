@@ -6,9 +6,11 @@ import {
   createTorrentServer,
 } from './utils'
 import { exec, spawn } from 'node:child_process'
+import minimist from 'minimist'
 import clivas from 'clivas'
 //import keypress from 'keypress'
 import inquirer from 'inquirer'
+import config from './config.json'
 
 const messages: string[] = []
 const commands: string[] = []
@@ -109,29 +111,23 @@ const queue = async (engine: TorrentStream.TorrentEngine) => {
 }
 
 async function start() {
-  const [torrentSource, ...rest] = process.argv.slice(2)
-  let fi, p
-  const index: string | null =
-    ((fi = rest.indexOf('-fi')), ~fi ? rest[fi + 1] : null)
-  const peers: string | null =
-    ((p = rest.indexOf('-p')), ~p ? rest[p + 1] : null)
-  const verify = rest.includes('-verify')
+  const argv = minimist(process.argv.slice(2))
+  const [torrentSource] = argv._
+  const check = Boolean(argv.c)
 
   try {
     const torrent = await parseTorrent(torrentSource)
-    const fileIndex = index ? Number(index) : await selectFile(torrent?.files)
+    const fileIndex = argv.fi
+      ? Number(argv.fi)
+      : await selectFile(torrent?.files)
 
-    const port = 8888
     const engine: TorrentStream.TorrentEngine = createTorrentEngine(torrent, {
-      verify,
+      verify: check,
     })
     const server = createTorrentServer(engine, engine.files[fileIndex])
-    server.listen(port)
+    server.listen(config.port)
 
     engine.on('ready', async () => {
-      if (peers !== null) {
-        peers.split(' ').forEach(peer => engine.connect(peer))
-      }
       console.log('engine is ready')
       process.stdout.write(Buffer.from('G1tIG1sySg==', 'base64'))
       queue(engine)
